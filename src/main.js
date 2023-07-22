@@ -1,4 +1,6 @@
 import { WASI, File, OpenFile, PreopenDirectory } from "@bjorn3/browser_wasi_shim";
+import * as d3 from "d3"
+import * as d3_graphviz from "d3-graphviz"
 
 let module;
 
@@ -68,7 +70,13 @@ const init = async () => {
         const reader = new FileReader()
         const name = file.name
         reader.onload = (e) => {
-            analyzeXhprof(name, e.target.result).then((result) => main.innerText = result)
+            analyzeXhprof(name, e.target.result).then((result) => {
+                const replaced = result.replace(/\\([A-Z{])/g, "\\\\$1")
+                main.style.display = "none"
+                d3.select("#graph")
+                    .graphviz()
+                    .renderDot(replaced)
+            })
         }
         reader.readAsArrayBuffer(file)
     });
