@@ -1,0 +1,16 @@
+{
+  "name": "wasm-toolkit",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "node build.mjs"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@esbuild-plugins/node-globals-polyfill": "^0.2.3",
+    "@wasmer/wasi": "^1.2.2",
+    "esbuild": "^0.18.15"
+  }
+}
