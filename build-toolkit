@@ -1,0 +1,4 @@
+#! /bin/sh
+
+docker run -v $PWD/build:/src --rm -w /src golang:1.21rc3 sh -c ./build
+cp -f build/toolkit/toolkit.wasm dist/toolkit.wasm

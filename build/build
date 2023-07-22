@@ -1,0 +1,5 @@
+git clone https://github.com/tideways/toolkit.git
+cd toolkit
+go mod init github.com/tideways/toolkit
+go mod tidy
+GOOS=wasip1 GOARCH=wasm go build -o toolkit.wasm
