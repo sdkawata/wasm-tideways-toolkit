@@ -4,13 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "node build.mjs"
+    "build": "esbuild src/main.js --bundle --outfile=dist/main.js",
+    "watch": "esbuild src/main.js --bundle --outfile=dist/main.js --watch"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@esbuild-plugins/node-globals-polyfill": "^0.2.3",
-    "@wasmer/wasi": "^1.2.2",
+    "@bjorn3/browser_wasi_shim": "^0.2.14",
     "esbuild": "^0.18.15"
   }
 }
